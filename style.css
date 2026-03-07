@@ -57,7 +57,7 @@ a, button, [role="button"], input[type="button"], input[type="submit"], .nav-lin
   backdrop-filter: blur(10px);
   display: flex;
   align-items: center;
-  padding: 0 50px;
+  padding: 0 5vw;
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
   z-index: 1000;
   height: 70px;
@@ -66,11 +66,12 @@ a, button, [role="button"], input[type="button"], input[type="submit"], .nav-lin
 .navbar-container {
   width: 100%;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
-  gap: 40px;
-  max-width: 1400px;
+  gap: 20px;
+  max-width: 1200px;
   margin: 0 auto;
+  position: relative;
 }
 
 .logo {
@@ -185,6 +186,48 @@ a, button, [role="button"], input[type="button"], input[type="submit"], .nav-lin
   box-shadow: 0 6px 20px rgba(0, 102, 204, 0.4);
 }
 
+/* Hamburger Menu */
+.nav-toggle {
+  display: none;
+}
+
+.nav-toggle-label {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.nav-toggle-label span {
+  width: 25px;
+  height: 3px;
+  background: var(--text);
+  margin: 3px 0;
+  transition: 0.3s;
+  border-radius: 2px;
+}
+
+.nav-toggle:checked ~ .nav-toggle-label span:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.nav-toggle:checked ~ .nav-toggle-label span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle:checked ~ .nav-toggle-label span:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  flex: 1;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
 /* ==================== HERO SECTION ==================== */
 .hero {
   margin-top: 70px;
@@ -234,7 +277,7 @@ a, button, [role="button"], input[type="button"], input[type="submit"], .nav-lin
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 60px 40px;
+  padding: 6vh 5vw;
   text-align: center;
 }
 
@@ -344,7 +387,7 @@ a, button, [role="button"], input[type="button"], input[type="submit"], .nav-lin
 
 /* ==================== GENERAL SECTIONS ==================== */
 .section {
-  padding: 100px 40px;
+  padding: 10vh 5vw;
 }
 
 .section-container {
@@ -384,13 +427,13 @@ a, button, [role="button"], input[type="button"], input[type="submit"], .nav-lin
 /* ==================== ABOUT SECTION ==================== */
 .about-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 5vw;
 }
 
 .about-card {
   background: white;
-  padding: 50px 40px;
+  padding: 5vh 4vw;
   border-radius: 20px;
   text-align: center;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
@@ -429,13 +472,13 @@ a, button, [role="button"], input[type="button"], input[type="submit"], .nav-lin
 /* ==================== PRODUCTS SECTION ==================== */
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 4vw;
 }
 
 .product-card {
   background: white;
-  padding: 40px 30px;
+  padding: 4vh 3vw;
   border-radius: 16px;
   text-align: center;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
@@ -502,12 +545,12 @@ a, button, [role="button"], input[type="button"], input[type="submit"], .nav-lin
 /* ==================== CAPABILITY SECTION ==================== */
 .capabilities-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 5vw;
 }
 
 .capability-item {
-  padding: 40px 30px;
+  padding: 4vh 3vw;
   text-align: center;
   background: white;
   border-radius: 16px;
@@ -547,13 +590,13 @@ a, button, [role="button"], input[type="button"], input[type="submit"], .nav-lin
 /* ==================== CERTIFICATIONS SECTION ==================== */
 .certifications-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 3vw;
 }
 
 .cert-item {
   background: white;
-  padding: 40px 25px;
+  padding: 4vh 2.5vw;
   border-radius: 16px;
   text-align: center;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
@@ -586,8 +629,8 @@ a, button, [role="button"], input[type="button"], input[type="submit"], .nav-lin
 /* ==================== CLIENTS SECTION ==================== */
 .clients-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 3vw;
   justify-items: center;
 }
 
@@ -595,12 +638,12 @@ a, button, [role="button"], input[type="button"], input[type="submit"], .nav-lin
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 0;
+  padding: 2vh 0;
 }
 
 .client-logo img {
-  max-width: 140px;
-  max-height: 80px;
+  max-width: 120px;
+  max-height: 60px;
   width: auto;
   height: auto;
   object-fit: contain;
@@ -2221,4 +2264,181 @@ a, button, [role="button"], input[type="button"], input[type="submit"], .nav-lin
   0% { opacity: 1; transform: scale(1); }
   50% { opacity: 0.7; transform: scale(1.2) translateY(-10px); }
   100% { opacity: 0; transform: scale(0.5) translateY(-20px); }
+}
+
+/* ==================== MEDIA QUERIES ==================== */
+
+/* Tablet (768px – 1199px) */
+@media (max-width: 1199px) {
+  .navbar-container {
+    padding: 0 3vw;
+  }
+
+  .section {
+    padding: 8vh 4vw;
+  }
+
+  .hero-container {
+    padding: 5vh 4vw;
+  }
+
+  .hero-content h1 {
+    font-size: 56px;
+  }
+
+  .hero-content p {
+    font-size: 20px;
+  }
+
+  .hero-stats {
+    gap: 40px;
+  }
+
+  .section-header h2 {
+    font-size: 36px;
+  }
+
+  .about-grid {
+    gap: 4vw;
+  }
+
+  .products-grid {
+    gap: 3vw;
+  }
+
+  .capabilities-grid {
+    gap: 4vw;
+  }
+
+  .certifications-grid {
+    gap: 2.5vw;
+  }
+
+  .clients-grid {
+    gap: 2.5vw;
+  }
+}
+
+/* Mobile (below 768px) */
+@media (max-width: 768px) {
+  .navbar {
+    height: 60px;
+    padding: 0 4vw;
+  }
+
+  .logo img {
+    height: 50px;
+  }
+
+  .nav-toggle-label {
+    display: flex;
+    order: 2;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 4vw;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .nav-toggle:checked ~ .nav-menu {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .navbar-clock {
+    display: none;
+  }
+
+  .hero {
+    min-height: 90vh;
+  }
+
+  .hero-content h1 {
+    font-size: 36px;
+  }
+
+  .hero-content p {
+    font-size: 16px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .hero-stats {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .section {
+    padding: 6vh 4vw;
+  }
+
+  .section-header h2 {
+    font-size: 28px;
+  }
+
+  .section-subtitle {
+    font-size: 16px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 4vh;
+  }
+
+  .products-grid {
+    grid-template-columns: 1fr;
+    gap: 4vh;
+  }
+
+  .capabilities-grid {
+    grid-template-columns: 1fr;
+    gap: 4vh;
+  }
+
+  .certifications-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3vw;
+  }
+
+  .clients-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4vw;
+  }
+
+  .client-logo img {
+    max-width: 100px;
+    max-height: 50px;
+  }
+
+  .btn {
+    padding: 14px 30px;
+    font-size: 14px;
+  }
+
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 40px 4vw;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 }
