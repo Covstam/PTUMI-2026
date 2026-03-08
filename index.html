@@ -5,6 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="site.region" content="id-ID"/>
   <title>PT Youmi Medika Industri - Medical Devices Lab</title>
+  <script>
+    (function () {
+      var requiredPassword = '82444444';
+      var isAuthenticated = false;
+
+      while (!isAuthenticated) {
+        var enteredPassword = window.prompt('Enter password to access youmimedika.com');
+
+        if (enteredPassword === requiredPassword) {
+          window.__YOUMI_ACCESS_GRANTED__ = true;
+          document.documentElement.classList.add('youmi-access-granted');
+          isAuthenticated = true;
+        } else if (enteredPassword === null) {
+          window.location.href = 'about:blank';
+          break;
+        } else {
+          window.alert('Incorrect password. Please try again.');
+        }
+      }
+    })();
+  </script>
   <link rel="stylesheet" href="style.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -562,6 +583,7 @@
   function validatePasscode() {
     if (passcodeInput.value === SITE_PASSWORD) {
       errorMessage.style.display = 'none';
+      window.__YOUMI_ACCESS_GRANTED__ = true;
       unlockWebsite();
       return;
     }
@@ -572,15 +594,19 @@
   }
 
   if (passcodeOverlay && passcodeInput && passcodeButton && errorMessage) {
-    document.body.style.overflow = 'hidden';
-    passcodeInput.focus();
+    if (window.__YOUMI_ACCESS_GRANTED__ === true) {
+      unlockWebsite();
+    } else {
+      document.body.style.overflow = 'hidden';
+      passcodeInput.focus();
 
-    passcodeButton.addEventListener('click', validatePasscode);
-    passcodeInput.addEventListener('keydown', function(event) {
-      if (event.key === 'Enter') {
-        validatePasscode();
-      }
-    });
+      passcodeButton.addEventListener('click', validatePasscode);
+      passcodeInput.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+          validatePasscode();
+        }
+      });
+    }
   }
 
   // Real-time clock function
