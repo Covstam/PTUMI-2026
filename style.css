@@ -2503,3 +2503,69 @@ a, button, [role="button"], input[type="button"], input[type="submit"], .nav-lin
   margin-top: 10px;
   display: none;
 }
+
+/* ===== FINAL MOBILE FIX: JOIN WITH US ===== */
+@media (max-width: 768px) {
+  #careers {
+    overflow-x: hidden;
+  }
+
+  #careers .careers-content {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+
+  #careers .career-benefits {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  #careers .benefit-item,
+  #careers .job-card,
+  #careers .careers-cta {
+    padding: 18px;
+  }
+
+  #careers .careers-info h3,
+  #careers .job-openings h3 {
+    font-size: 24px;
+  }
+
+  #careers .job-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  #careers .job-header h4 {
+    font-size: 16px;
+  }
+
+  #careers .job-details {
+    gap: 10px;
+  }
+
+  #careers .job-details p {
+    width: 100%;
+    word-break: break-word;
+  }
+
+  #careers .job-card:hover,
+  #careers .benefit-item:hover,
+  #careers .apply-btn:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 480px) {
+  #careers .section-header h2 {
+    font-size: 24px;
+  }
+
+  #careers .section-subtitle,
+  #careers .job-description,
+  #careers .careers-cta p {
+    font-size: 14px;
+  }
+}
