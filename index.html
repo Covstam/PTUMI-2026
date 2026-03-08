@@ -11,17 +11,18 @@
 </head>
 <body>
 
+<!-- ===== PASSCODE OVERLAY ===== -->
+<div id="passcode-overlay">
+  <h2>Enter Passcode to Access Website</h2>
+  <input type="password" id="passcode-input" placeholder="Enter passcode"/>
+  <button id="passcode-btn">Enter</button>
+  <div id="error-msg">Incorrect passcode. Try again.</div>
+</div>
 <header class="navbar">
   <div class="navbar-container">
     <div class="logo">
       <img src="assets/images/logo.png" alt="Youmi Medika">
     </div>
-    <input type="checkbox" id="nav-toggle" class="nav-toggle">
-    <label for="nav-toggle" class="nav-toggle-label">
-      <span></span>
-      <span></span>
-      <span></span>
-    </label>
     <nav class="nav-menu">
       <a href="#about" class="nav-link">About</a>
       <a href="#products" class="nav-link">Products</a>
@@ -547,6 +548,41 @@
 </a>
 
 <script>
+  const SITE_PASSWORD = '82444444';
+  const passcodeOverlay = document.getElementById('passcode-overlay');
+  const passcodeInput = document.getElementById('passcode-input');
+  const passcodeButton = document.getElementById('passcode-btn');
+  const errorMessage = document.getElementById('error-msg');
+
+  function unlockWebsite() {
+    passcodeOverlay.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
+
+  function validatePasscode() {
+    if (passcodeInput.value === SITE_PASSWORD) {
+      errorMessage.style.display = 'none';
+      unlockWebsite();
+      return;
+    }
+
+    errorMessage.style.display = 'block';
+    passcodeInput.value = '';
+    passcodeInput.focus();
+  }
+
+  if (passcodeOverlay && passcodeInput && passcodeButton && errorMessage) {
+    document.body.style.overflow = 'hidden';
+    passcodeInput.focus();
+
+    passcodeButton.addEventListener('click', validatePasscode);
+    passcodeInput.addEventListener('keydown', function(event) {
+      if (event.key === 'Enter') {
+        validatePasscode();
+      }
+    });
+  }
+
   // Real-time clock function
   function updateClock() {
     const now = new Date();
